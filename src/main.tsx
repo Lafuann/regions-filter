@@ -5,7 +5,7 @@ import {
   RouterProvider,
   useLoaderData,
   useSearchParams,
-} from "react-router-dom";
+} from "react-router";
 import "./index.css";
 
 // types
@@ -42,19 +42,7 @@ type SelectProps = {
   options: { id: number; name: string }[];
 };
 
-// fetch data
-async function loader(): Promise<RegionsData> {
-  const res = await fetch("/data/indonesia_regions.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch regions data");
-  }
-
-  return res.json();
-}
-
 // icons
-
 function GlobeIcon() {
   return (
     <svg
@@ -548,6 +536,17 @@ export function Home() {
       </div>
     </div>
   );
+}
+
+// fetch data
+async function loader(): Promise<RegionsData> {
+  const res = await fetch("/data/indonesia_regions.json");
+
+  if (!res.ok) {
+    alert("Failed to fetch regions data");
+  }
+
+  return res.json();
 }
 
 const router = createBrowserRouter([
