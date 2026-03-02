@@ -5,7 +5,7 @@ import {
   RouterProvider,
   useLoaderData,
   useSearchParams,
-} from "react-router";
+} from "react-router-dom";
 import "./index.css";
 
 // types
